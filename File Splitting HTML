@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Segmenter</title>
+    <style>
+        /* Set background image and center content */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background: url('cyberimg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Style the form container */
+        .form-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Style the logo */
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* Style form elements */
+        label {
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo at the top -->
+    <img src="fragmentlogo.jpg" alt="Logo" class="logo">
+
+    <!-- Form container -->
+    <div class="form-container">
+        <h1>Upload a File to Segment</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="file">Choose a text file (.txt):</label>
+            <input type="file" name="file" id="file" accept=".txt" required>
+            <button type="submit">Upload and Split</button>
+        </form>
+    </div>
+</body>
+</html>
