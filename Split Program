@@ -1,0 +1,27 @@
+import os
+import random
+import string
+try:
+    file_path = input("Please Enter your file Path: ").strip()
+    output_dir = 'segments_directory'  
+    segment_length = 6  
+    def split_text_file(file_path, segment_length, output_dir):
+        with open(file_path, 'r') as file:
+            content = file.read()
+
+        segments = [content[i:i + segment_length] for i in range(0, len(content), segment_length)]
+
+        os.makedirs(output_dir, exist_ok=True)  # Create path if not exist
+
+        for idx, segment in enumerate(segments):
+            segment_filename = f'segment_{idx+1}_{"".join(random.choices(string.ascii_letters, k=5))}.txt'
+            segment_path = os.path.join(output_dir, segment_filename)
+
+            with open(segment_path, 'w') as segment_file:
+                segment_file.write(segment)
+            print(f"Saved segment {idx + 1} to {segment_path}")
+    split_text_file(file_path, segment_length, output_dir)
+except FileNotFoundError:
+    print("No file found or the path might be wrong.")
+except Exception as e:
+    print(f"An error occurred: {e}")
